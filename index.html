@@ -3,36 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
+    <script src="script.js"></script>
 </head>
 <body>
 
-    <input type="text" id="input"/><button  type="button" id="btn" onclick="TodoFunction()" >Clcik</button><br/>
-    <ol id="demo" >
+    <input type="text" id="input"/><button  type="button" id="btn"  onclick="TodoFunction()">Clcik</button><br/>
+    <ol id="demo">
         
     </ol>
 
-
-    <script> 
-
-        function TodoFunction()
-        {
-            var text = document.getElementById('input').value; 
-            if(text == "" || isNaN(text) !== true)
-            {
-                alert("Input is not unacceptable");
-            }
-            else{
-
-            var input = document.getElementById('btn');
-            var text = document.getElementById('input').value; 
-            var li = document.createElement("li");
-            var txt =  document.createTextNode(text);
-            li.appendChild(txt);
-            var ul = document.getElementById('demo');
-            ul.appendChild(li);
-            }
-        }
-
-    </script>
 </body>
 </html>
