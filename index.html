@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <input type="text" id="input"/><button  type="button" id="btn" onclick="inputVerify()" >Clcik</button><br/>
+    <input type="text" id="input"/><button  type="button" id="btn" onclick="TodoFunction()" >Clcik</button><br/>
     <ol id="demo" >
         
     </ol>
@@ -14,24 +14,23 @@
 
     <script> 
 
-        function inputVerify()
+        function TodoFunction()
         {
             var text = document.getElementById('input').value; 
             if(text == "" || isNaN(text) !== true)
             {
                 alert("Input is not unacceptable");
             }
+            else{
 
-        }
-        var input = document.getElementById('btn');
-        input.addEventListener("click",TodoFunction);
-        function TodoFunction(){
+            var input = document.getElementById('btn');
             var text = document.getElementById('input').value; 
             var li = document.createElement("li");
             var txt =  document.createTextNode(text);
             li.appendChild(txt);
             var ul = document.getElementById('demo');
             ul.appendChild(li);
+            }
         }
 
     </script>
