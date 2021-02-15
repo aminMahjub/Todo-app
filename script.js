@@ -15,8 +15,5 @@
             var ul = document.getElementById('demo');
             ul.appendChild(li);
             }
-            (function(){
                 document.getElementById('input').value = " ";
-
-            }())
         }
