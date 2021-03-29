@@ -1,19 +1,17 @@
-//scrip
-        function TodoFunction()
-        {
-            var text = document.getElementById('input').value; 
-            if(text == "" || isNaN(text) !== true)
-            {
-                alert("Input is not unacceptable");
-            }
-            else{
+function TodoFunction()
+{
+    var text = document.getElementsByClassName('input')[0].value; 
+    if(text == "" || isNaN(text) !== true)
+    {
+        alert("Input is not unacceptable");
+    }
+    else{
 
-            var input = document.getElementById('btn');
-            var li = document.createElement("li");
-            var txt =  document.createTextNode(text);
-            li.appendChild(txt);
-            var ul = document.getElementById('demo');
-            ul.appendChild(li);
-            }
-                document.getElementById('input').value = " ";
-        }
+    var li = document.createElement("li");
+    var txt =  document.createTextNode(text);
+    li.appendChild(txt);
+    var ul = document.getElementById('demo');
+    ul.appendChild(li);
+    }
+        document.getElementsByClassName('input')[0].value = " ";
+}
