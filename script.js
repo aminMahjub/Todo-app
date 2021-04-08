@@ -1,33 +1,47 @@
-function TodoFunction()
-{
-    var text = document.getElementsByClassName('input')[0].value; 
-    if(text == "" || isNaN(text) !== true)
-    {
+function TodoFunction() {
+    var text = document.getElementsByClassName('input')[0].value;
+    if (text == "" || isNaN(text) !== true) {
         alert("Input is not unacceptable");
-    }
-    else{
+    } else {
 
-    var li = document.createElement("li");
-    var txt =  document.createTextNode(text);
-    li.appendChild(txt);
-    var ul = document.getElementById('demo');
-    ul.appendChild(li);
+        var li = document.createElement("li");
+        var txt = document.createTextNode(text);
+        li.appendChild(txt);
+        var ul = document.getElementById('demo');
+        ul.appendChild(li);
     }
-        document.getElementsByClassName('input')[0].value = " ";
-
-    
+    document.getElementsByClassName('input')[0].value = " ";
     var deleteButton = document.createElement("button");
     deleteButton.appendChild(document.createTextNode("Delete"));
     deleteButton.className += "delete-btn";
     li.appendChild(deleteButton);
-
     var editButton = document.createElement("button");
     editButton.appendChild(document.createTextNode("Edit"));
     editButton.className += "edit-btn";
     li.appendChild(editButton);
-
     var completeButton = document.createElement("button");
     completeButton.appendChild(document.createTextNode("Complete"));
     completeButton.className += "complete-btn";
     li.appendChild(completeButton);
+    var deleteButtoncls = document.getElementsByClassName("delete-btn")[0];
+    deleteButton.addEventListener("click", function() {
+        li.style.display = "none";
+    })
+    var completeButtonCls = document.getElementsByClassName("complete-btn")[0];
+    completeButton.addEventListener("click", function() {
+        var liStyle = li.style;
+        var completeBtnStyle = completeButton.style;
+        if (li.style.backgroundColor == "green") {
+            li.style = "";
+            completeButton.style = ""
+            completeButton.innerHTML = "Complete"
+        } else {
+            liStyle.backgroundColor = "green";
+            liStyle.color = "white"
+            completeBtnStyle.backgroundColor = "grey";
+            completeButton.innerHTML = "&#10004;"
+
+        }
+    });
+
 }
