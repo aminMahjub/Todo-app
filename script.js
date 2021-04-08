@@ -43,5 +43,22 @@ function TodoFunction() {
 
         }
     });
+    var editButtonCls = document.getElementsByClassName("edit-btn")[0];
+    li.setAttribute("contentEditable", "false");
+    editButton.addEventListener("click", function editItem() {
+        if (li.contentEditable == "true") {
+            li.contentEditable = false;
+            editButton.innerHTML = "Edited";
 
+        } else {
+            li.contentEditable = true;
+            editButton.innerHTML = "Editing";
+            var buttonGroup = document.getElementsByTagName("button");
+            var i;
+            for (i = 0; i < buttonGroup.length; i++) {
+                buttonGroup[i].contentEditable = false;
+            }
+        }
+
+    })
 }
