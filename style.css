@@ -15,7 +15,6 @@ body{
 }
 .title {
     color: black;
-    text-shadow: gray 2px 3px;
     font-size: 9vh;
     width: 300px;
     font-weight: normal;
@@ -38,10 +37,10 @@ input{
     background-color: #fda50f;
     margin-top: 6%;
 }
-.add{
+.add-btn{
     width: 57px;
     cursor: pointer;
-    margin-left: -60px;
+    margin-left: -64px;
     color: antiquewhite;
     border-radius: 10px;
     background-color: #b35900;
@@ -59,14 +58,14 @@ input{
   ::placeholder {
     color: black;
   }
-  ol{
+  .todo-list{
       width: 93%;
       z-index: 2;
       margin: auto;
       
       
   }
-  ol li{
+  li{
       background-color: #ffca28;
       width: 100%;
       font-size: 20px;
@@ -113,19 +112,19 @@ input{
         width: 550px;
         margin-top: 60px;
     }
-    ol{
+    .todo-list{
         width: 650px;
     }
 
     
 @media only screen and (min-width:1650px) {
-    .add{
+    .add-btn{
         width: 3.4%;
-        margin-left: -68px;
+        margin-left: -72px;
     }
 }
 @media only screen and (min-width:510px) {
-  ol{
+  .todo-list{
       margin: auto;
   }
 

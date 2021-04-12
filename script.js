@@ -1,89 +1,144 @@
-var li = document.createElement("li");
-var toggleClass = li.classList.toggle("completed-item");
-function TodoFunction() {
-    var text = document.getElementsByClassName('input')[0].value;
-    if (text == "" || isNaN(text) !== true) {
+var Task = document.createElement("li");
+function addTask() {
+    var inputValue = document.getElementsByTagName('input')[0].value;
+    if (inputValue == "" || isNaN(inputValue) !== true) {
         alert("Input is not unacceptable");
     } else {
-        var li = document.createElement("li");
-        var txt = document.createTextNode(text);
-        li.appendChild(txt);
-        var ul = document.getElementById('demo');
-        ul.appendChild(li);
+        var Task = document.createElement("li");
+        Task.classList.add("li-item");
+        var txt = document.createTextNode(inputValue);
+        Task.appendChild(txt);
+        var TodoList = document.getElementsByClassName('todo-list')[0];
+        TodoList.appendChild(Task);
     }
-    document.getElementsByClassName('input')[0].value = " ";
-    var deleteButton = document.createElement("button");
+    document.getElementsByTagName('input')[0].value = " ";
+    //Step3
+    var deleteButton, editButton, completeButton;
+    deleteButton = document.createElement("button");
+    editButton = document.createElement("button");
+    completeButton = document.createElement("button");
+    // delete button
     deleteButton.appendChild(document.createTextNode("Delete"));
-    deleteButton.className += "delete-btn";
-    li.appendChild(deleteButton);
-    var editButton = document.createElement("button");
+    deleteButton.classList.add("delete-btn");
+    Task.appendChild(deleteButton);
+    // edit button
     editButton.appendChild(document.createTextNode("Edit"));
-    editButton.className += "edit-btn";
-    li.appendChild(editButton);
-    var completeButton = document.createElement("button");
+    Task.setAttribute("contentEditable", "false");
+    editButton.classList.add("edit-btn");
+    Task.appendChild(editButton);
+    //complete button
     completeButton.appendChild(document.createTextNode("Complete"));
-    completeButton.className += "complete-btn";
-    li.appendChild(completeButton);
-    var deleteButtoncls = document.getElementsByClassName("delete-btn")[0];
-    deleteButton.addEventListener("click", function() {
-        li.style.display = "none";
-    })
-    var completeButtonCls = document.getElementsByClassName("complete-btn")[0];
-    completeButton.addEventListener("click", function completeItem() {
-        var liStyle = li.style;
-        var completeBtnStyle = completeButton.style;
-        if (li.style.backgroundColor == "green") {
-            li.style = "";
-            completeButton.style = ""
-            completeButton.innerHTML = "Complete";
-        } else {
-            liStyle.backgroundColor = "green";
-            liStyle.color = "white"
-            completeBtnStyle.backgroundColor = "grey";
-            completeButton.innerHTML = "&#10004;"
-        }
-        li.classList.toggle("completed-item");
-    });
-    var editButtonCls = document.getElementsByClassName("edit-btn")[0];
-    li.setAttribute("contentEditable", "false");
-    editButton.addEventListener("click", function editItem() {
-        if (li.contentEditable == "true") {
-            li.contentEditable = false;
-            editButton.innerHTML = "Edited";
+    completeButton.classList.add("complete-btn");
+    Task.appendChild(completeButton);
 
+    deleteButton.onclick = function deleteTask() {
+        TodoList.removeChild(Task);
+    };
+    editButton.onclick = function editTask() {
+
+        if (Task.contentEditable == "true") {
+            Task.contentEditable = false;
+            editButton.innerHTML = "Edited";
+    
         } else {
-            li.contentEditable = true;
-            editButton.innerHTML = "Editing";
             var buttonGroup = document.getElementsByTagName("button");
             var i;
+            Task.contentEditable = true;
+            editButton.innerHTML = "Editing";
             for (i = 0; i < buttonGroup.length; i++) {
                 buttonGroup[i].contentEditable = false;
             }
         }
-    });
-
-}
-function filterTask() {
-    var selectElement = document.getElementsByClassName("filter")[0];
-    var i = selectElement.selectedIndex;
-    if(i == 0){
-alert(1)
-    } else if(i == 1) {
-        debugger;
-        var parentLi = document.getElementById("demo");
-        var uncompletedItem = document.getElementsByClassName("completed-item");
-        var k;
-        var y = uncompletedItem.length - 1;
-        for(k = 0; k < y ; k++ ) {
-            parentLi.removeChild(uncompletedItem[k]);
-        }
-
-alert(2)
-
-    } else {
-        
-alert(3)
-
     }
-    
+        completeButton.onclick = function completeTask() {
+            var TaskStyle, completeBtnStyle;
+            TaskStyle = Task.style;
+            completeBtnStyle = completeButton.style;
+
+            if (Task.style.backgroundColor == "green") {
+                Task.style = "";
+                completeButton.style = "";
+                Task.classList.add("li-item");
+                Task.classList.remove("completed-item")
+                completeButton.innerHTML = "Complete";
+            } else {
+                TaskStyle.backgroundColor = "green";
+                TaskStyle.color = "white"
+                completeBtnStyle.backgroundColor = "grey";
+                completeButton.innerHTML = "&#10004;"
+                Task.classList.add("completed-item");
+                Task.classList.remove("li-item");
+            }
+        };
+    }
+// filter task             
+function filterTask() {
+    var filterElement, filterChild, completedTask, unCompletedTask, completedTaskArr, unCompleteTaskArr, k, j;
+    filterElement = document.getElementsByClassName("filter")[0];
+    filterChild = filterElement.selectedIndex;
+    completedTask = document.querySelectorAll(".completed-item");
+    unCompletedTask = document.querySelectorAll('.li-item');
+    // completedTaskArr = [];
+    // unCompleteTaskArr = [];
+        
+    // for (k = 0; k < completedTask.length; k++) {
+    //     completedTaskArr.push(completedTask[k]);
+    // }
+    // console.log(completedTaskArr);
+
+    // for (j = 0; j < unCompletedTask.length; j++) {
+    //     unCompleteTaskArr.push(unCompletedTask[j]);
+    // }
+
+    // if (filterChild == 1) {
+    //     unCompleteTaskArr.forEach(function (value, index) {
+    //         console.log(value);
+    //         value.style.display = "inline-block";
+    //     });
+    //     completedTaskArr.forEach(function (value, index) {
+    //         console.log(value);
+    //         value.style.display = "none";
+    //     });
+    // } else if (filterChild == 2) {
+    //     unCompleteTaskArr.forEach(function (value, index) {
+    //         value.style.display = "none";
+    //     });
+    //     completedTaskArr.forEach(function (value, index) {
+    //         value.style.display = "inline-block";
+    //     });
+    // } else {
+    //     unCompleteTaskArr.forEach(function (value, index) {
+    //         value.style.display = "inline-block";
+    //     });
+    //     completedTaskArr.forEach(function (value, index) {
+    //         value.style.display = "inline-block";
+    //     });
+    // }
+    function completedItem(x) {
+        for (k = 0; k < completedTask.length; k++) {
+            completedTaskArr = completedTask[k];
+            completedTaskArr.style.display = x;
+        };
+        
+    }
+    function unCompletedItem(y) {
+        for (j = 0; j < unCompletedTask.length; j++) {
+            unCompleteTaskArr = unCompletedTask[j];
+            unCompleteTaskArr.style.display = y;
+        };
+        
+    }
+    if (filterChild == 1) {
+        unCompletedItem("inline-block");
+        completedItem("none");
+        
+    } else if (filterChild == 2) {
+        unCompletedItem("none");
+        completedItem("inline-block");
+        
+    } else {
+        unCompletedItem("inline-block");
+        completedItem("inline-block");
+    }
+
 }
