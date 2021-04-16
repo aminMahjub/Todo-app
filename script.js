@@ -78,42 +78,7 @@ function filterTask() {
     filterChild = filterElement.selectedIndex;
     completedTask = document.querySelectorAll(".completed-item");
     unCompletedTask = document.querySelectorAll('.li-item');
-    // completedTaskArr = [];
-    // unCompleteTaskArr = [];
-        
-    // for (k = 0; k < completedTask.length; k++) {
-    //     completedTaskArr.push(completedTask[k]);
-    // }
-    // console.log(completedTaskArr);
 
-    // for (j = 0; j < unCompletedTask.length; j++) {
-    //     unCompleteTaskArr.push(unCompletedTask[j]);
-    // }
-
-    // if (filterChild == 1) {
-    //     unCompleteTaskArr.forEach(function (value, index) {
-    //         console.log(value);
-    //         value.style.display = "inline-block";
-    //     });
-    //     completedTaskArr.forEach(function (value, index) {
-    //         console.log(value);
-    //         value.style.display = "none";
-    //     });
-    // } else if (filterChild == 2) {
-    //     unCompleteTaskArr.forEach(function (value, index) {
-    //         value.style.display = "none";
-    //     });
-    //     completedTaskArr.forEach(function (value, index) {
-    //         value.style.display = "inline-block";
-    //     });
-    // } else {
-    //     unCompleteTaskArr.forEach(function (value, index) {
-    //         value.style.display = "inline-block";
-    //     });
-    //     completedTaskArr.forEach(function (value, index) {
-    //         value.style.display = "inline-block";
-    //     });
-    // }
     function completedItem(x) {
         for (k = 0; k < completedTask.length; k++) {
             completedTaskArr = completedTask[k];
