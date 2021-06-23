@@ -47,6 +47,16 @@ input{
     font-size: 20px;
     padding: 6px 0px;
 }
+.add-btn-disable:disabled {
+    width: 57px;
+    cursor: pointer;
+    margin-left: -64px;
+    color: gray;
+    border-radius: 10px;
+    background-color: #b35900;
+    font-size: 20px;
+    padding: 6px 0px;
+}
 ::-webkit-input-placeholder { /* Edge */
     color: black;
   }
@@ -100,6 +110,9 @@ input{
 }
 .complete-btn{
     background-color: green;
+}
+.complete-status {
+    background-color: gray;
 }
 .delete-btn{
     background-color: red;
