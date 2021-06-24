@@ -1,13 +1,11 @@
 let taskDataBase = [];
-const TodoList = document.querySelector(".todo-list");
-
-const inputValue = document.querySelector("input");
 let status = "all";
 let countId = 0;
 
 function addTask() {
+  const inputValue = document.querySelector("input");
   if (inputValue.value == "") {
-    alert("hhhh");
+    alert("Your task is an unacceptable");
     return;
   } else {
     dataBase(inputValue.value);
@@ -28,6 +26,7 @@ function dataBase(text) {
 }
 
 function renderPage() {
+  const TodoList = document.querySelector(".todo-list");
   TodoList.innerHTML = "";
   const filteredDataBase = taskDataBase.filter((task) => {
     switch (status) {
@@ -140,7 +139,6 @@ function completeTask(event) {
 function filterTask() {
   const filterElement = document.getElementsByClassName("filter")[0];
   const filterELChild = filterElement.value.toLowerCase();
-
   status = filterELChild;
   renderPage();
 }
