@@ -3,12 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing:content-box;
-    font-family: Garamond;
     font-weight: bold;
-}
-@font-face {
-    font-family: 'font';
-    src: url(font/FrederickatheGreat-Regular.ttf);
 }
 body{
     background-color: #ffff;
